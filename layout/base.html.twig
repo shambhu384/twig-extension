@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %} Twig apps{% endblock %}</title>
+        <link rel="stylesheet" href="https://getbootstrap.com/docs/3.3/dist/css/bootstrap.min.css"/>
+        {% block stylesheets %}
+        <style>
+            .jumbotron {
+                background-color: #f0f0f0;
+            }
+        </style>
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            {% block body%}{% endblock %}
+
+        {% block footer %}
+            <hr>
+            Copyright @learningpage 2018
+        {% endblock %}
+        </div>
+    </body>
+    {% block scripts %}
+
+    {% endblock %}
+</html>

@@ -1,0 +1,37 @@
+# config/packages/twig.yaml
+twig:
+
+    env:
+        # false: disable auto-escaping
+        # html, js: set the autoescaping to one of the supported strategies
+        # name: set the autoescaping strategy based on the template name extension
+        # PHP callback: a PHP callback that returns an escaping strategy based on the template "name"
+        autoescape:             'html'
+        base_template_class:       Twig_Template
+        cache:                     'cache'
+        charset:                   'UTF-8'
+        debug:                     true
+        strict_variables:          true
+        auto_reload:               true
+        # optimizations values
+        # OPTIMIZE_ALL = -1
+        # OPTIMIZE_NONE = 0;
+        # OPTIMIZE_FOR = 2; 
+        # OPTIMIZE_RAW_FILTER = 4;
+        # OPTIMIZE_VAR_ACCESS = 8;
+        optimizations:             0
+
+        # 
+    filesystem:
+        default_path: './templates'
+        paths:
+            '/home/scott/work/twig/layout': base
+
+        date:
+            format: d.m.Y, H:i:s
+            interval_format: '%%d days'
+            timezone: Asia/Tokyo
+        number_format:
+            decimals: 2
+            decimal_point: ','
+            thousands_separator: '.'

@@ -1,0 +1,98 @@
+{% extends '@base/base.html.twig' %}
+
+{# Block names should consist of alphanumeric characters, and underscores. Dashes are not permitted. #}
+{% block body %}
+
+    {# When a template uses inheritance and if you want to print a block multiple times, use the block function: #}
+    <h1>{{ block('title') }}</h1>
+
+    <p>{{ block("title", "common.html.twig") }} </p>
+
+    {# Use the defined test to check if a block exists in the context of the current template: #}
+    {% if block("footer") is defined %}
+        This is footer defined in this context
+    {% endif %}
+
+    {% if block("footer", "common.html.twig") is defined %}
+        footer defined in common template
+    {% endif %}
+
+    <div class="bs-component">
+        <div class="jumbotron">
+            <h1 class="display-3">LMS Analytics</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for
+            calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="/en/login" role="button">Learn more</a>
+            </p>
+        </div>
+    </div>
+    {% block stylesheets %}
+        <style>
+        .jumbotron {
+            background-color: pink;
+        }
+        </style>
+    {% endblock %}
+
+    {% autoescape 'html' %}
+        <h2>Everything will be automatically escapeds in this block using the HTML strategy</h2>
+    {% endautoescape %}
+
+    <ul>
+    {% for i in 0..10 %}
+        <li> {{ app.name }} </li>
+    {% endfor %}
+    </ul>
+
+    {# Person #}
+{{ app.name }}
+{{ app.firstName('male') }}
+{{ app.lastName }}
+
+{# Address #}
+{{ app.address }}
+{{ app.streetName }}
+{{ app.streetAddress }}
+{{ app.postCode }}
+{{ app.address }}
+{{ app.country }}
+
+{#  Company #}
+{{ app.company }}
+
+{# date and time #}
+
+{{ app.year }}
+{{ app.month }}
+{{ app.monthName }}
+{{ app.timezone }}
+{{ app.time }}
+{# app.dateTime #}
+{{ app.unixTime }}
+
+{# internet #}
+{{ app.email }}
+{{ app.userName }}
+{{ app.password }}
+
+{# payment #}
+{{ app.creditCardType }}
+{{ app.creditCardNumber }}
+
+{# images #}
+{{ app.imageUrl(50, 60) }}
+
+
+    Hello {{ app.name }}
+
+    Address {{ app.address }}
+
+
+    Date: {{ app.time|time_diff }}
+
+
+    {{ "Lorem ipsum dolor sit amet, consectetur adipiscing"|wordwrap(10) }}
+
+{% endblock %}

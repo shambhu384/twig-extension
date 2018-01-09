@@ -1,5 +1,8 @@
 {
     "require": {
-        "twig/twig": "^2.4"
+        "twig/twig": "^2.4",
+        "twig/extensions": "^1.5",
+        "fzaninotto/faker": "^1.7",
+        "symfony/yaml": "^4.0"
     }
 }
